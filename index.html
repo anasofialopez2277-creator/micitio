@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Marca | Soluciones Innovadoras</title>
-    <!-- Importamos una fuente moderna de Google Fonts -->
+    <!-- Fuente Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- VARIABLES DE COLOR --- */
         :root {
-            --primary-yellow: #F4D03F; /* Amarillo principal */
+            --primary-yellow: #F4D03F;
             --primary-yellow-hover: #d4b126;
             --dark-text: #2C3E50;
             --light-text: #ecf0f1;
@@ -35,6 +35,26 @@
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+
+        /* --- ESTILOS PARA PUBLICIDAD --- */
+        .ad-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #f0f0f0; /* Fondo ligero para distinguir que es publi */
+            overflow: hidden;
+        }
+        
+        .ad-container-transparent {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0;
+            margin: 20px 0;
+        }
 
         /* --- BOTONES --- */
         .btn {
@@ -134,7 +154,6 @@
             position: relative;
         }
 
-        /* Forma decorativa amarilla */
         .hero::after {
             content: '';
             position: absolute;
@@ -238,7 +257,6 @@
             height: 400px;
             background-color: #ddd;
             border-radius: 20px;
-            /* Placeholder para imagen real */
             background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
             background-size: cover;
             background-position: center;
@@ -345,11 +363,6 @@
             .hamburger {
                 display: block;
             }
-
-            .about-img div {
-                box-shadow: 10px 10px 0px var(--primary-yellow);
-                height: 300px;
-            }
         }
     </style>
 </head>
@@ -382,6 +395,20 @@
         </div>
     </section>
 
+    <!-- PUBLICIDAD 1: BANNER 468x60 (Ubicado después del Hero) -->
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '04b0ab663d2adc5b0c3a3ffc01343cdf',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/04b0ab663d2adc5b0c3a3ffc01343cdf/invoke.js"></script>
+    </div>
+
     <!-- CARACTERÍSTICAS -->
     <section class="features" id="features">
         <h2 class="section-title">¿Por qué elegirnos?</h2>
@@ -406,10 +433,16 @@
         </div>
     </section>
 
+    <!-- PUBLICIDAD 2: CONTAINER BOX (Entre Servicios y Nosotros) -->
+    <div class="ad-container-transparent">
+        <script async="async" data-cfasync="false" src="//pl28171481.effectivegatecpm.com/93b4c63c24893dbbb2d09b5368da2c31/invoke.js"></script>
+        <div id="container-93b4c63c24893dbbb2d09b5368da2c31"></div>
+    </div>
+
     <!-- SOBRE NOSOTROS -->
     <section class="about" id="nosotros">
         <div class="about-img">
-            <div></div> <!-- Imagen de fondo por CSS -->
+            <div></div> 
         </div>
         <div class="about-text">
             <h2>Sobre Nosotros</h2>
@@ -421,7 +454,7 @@
         </div>
     </section>
 
-    <!-- CTA (CALL TO ACTION) -->
+    <!-- CTA -->
     <section class="cta">
         <h2>¿Listo para comenzar tu proyecto?</h2>
         <p>No pierdas más tiempo, llevemos tu idea a la realidad hoy mismo.</p>
@@ -458,7 +491,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- SCRIPTS FUNCIONALES DE LA PÁGINA -->
     <script>
         // Menú Móvil
         const hamburger = document.getElementById('hamburger');
@@ -468,20 +501,17 @@
             navLinks.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer click en un enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Efecto Sticky en Navbar al hacer scroll
         window.addEventListener('scroll', () => {
             const header = document.getElementById('navbar');
             header.classList.toggle('sticky', window.scrollY > 0);
         });
 
-        // Smooth Scroll (por si el navegador no lo soporta nativamente en CSS)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -491,5 +521,11 @@
             });
         });
     </script>
+
+    <!-- PUBLICIDAD 3 y 4: SCRIPTS GENERALES (Pop-unders/Invisibles) -->
+    <!-- Se colocan al final para no afectar la carga visual inicial -->
+    <script type='text/javascript' src='//pl28171489.effectivegatecpm.com/dd/a5/b0/dda5b0fbca02a53eac7948a779f74278.js'></script>
+    <script type='text/javascript' src='//pl28171510.effectivegatecpm.com/6b/6d/a5/6b6da5b22002f17e2907d385948a322a.js'></script>
+
 </body>
 </html>
