@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Marca | Soluciones Innovadoras</title>
+    <!-- Importamos una fuente moderna de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --primary-yellow: #F4D03F; /* Amarillo principal */
+            --primary-yellow-hover: #d4b126;
+            --dark-text: #2C3E50;
+            --light-text: #ecf0f1;
+            --white: #ffffff;
+            --grey-bg: #f9f9f9;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- RESET BÁSICO --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            color: var(--dark-text);
+            box-shadow: 0 4px 10px rgba(244, 208, 63, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-yellow-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--dark-text);
+            color: var(--dark-text);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-text);
+            color: var(--white);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        header.sticky {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .logo span {
+            color: var(--primary-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-yellow-hover);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff 50%, #fffbf0 50%);
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Forma decorativa amarilla */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background-color: var(--primary-yellow);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(120deg, transparent 0%, transparent 60%, var(--primary-yellow) 60%, var(--primary-yellow) 100%);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* --- CARACTERÍSTICAS (SERVICES) --- */
+        .features {
+            padding: 80px 5%;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--primary-yellow);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: #fff9db;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d4b126;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 80px 5%;
+            background-color: var(--grey-bg);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1 1 400px;
+            padding: 20px;
+        }
+
+        .about-img div {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            border-radius: 20px;
+            /* Placeholder para imagen real */
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 20px 20px 0px var(--primary-yellow);
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta {
+            background-color: var(--primary-yellow);
+            padding: 60px 5%;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn-cta-dark {
+            background-color: var(--dark-text);
+            color: var(--white);
+        }
+        
+        .btn-cta-dark:hover {
+            background-color: #000;
+        }
+
+        /* --- CONTACTO / FOOTER --- */
+        footer {
+            background-color: #1a252f;
+            color: var(--light-text);
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--primary-yellow);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--primary-yellow);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--white);
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .about-img div {
+                box-shadow: 10px 10px 0px var(--primary-yellow);
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header id="navbar">
+        <div class="logo">Tu<span>Marca</span>.</div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#features">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contacto" style="color:var(--primary-yellow-hover); font-weight:bold;">Empezar</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Impulsa tu Idea con <span>Creatividad</span></h1>
+            <p>Somos una agencia dedicada a brindar soluciones rápidas, eficaces y con estilo. Transformamos tus problemas en oportunidades brillantes.</p>
+            <a href="#features" class="btn btn-primary">Ver Servicios</a>
+            <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="features" id="features">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <span class="section-subtitle">Ofrecemos calidad y compromiso en cada proyecto</span>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Rapidez</h3>
+                <p>Entregamos resultados en tiempo récord sin sacrificar la calidad de nuestro trabajo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🛡️</div>
+                <h3>Seguridad</h3>
+                <p>Tus datos y proyectos están protegidos con los más altos estándares de la industria.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💡</div>
+                <h3>Innovación</h3>
+                <p>Utilizamos las últimas tecnologías para mantenerte siempre un paso adelante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+        <div class="about-img">
+            <div></div> <!-- Imagen de fondo por CSS -->
+        </div>
+        <div class="about-text">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos un equipo apasionado por el diseño y la funcionalidad. Creemos que el color amarillo representa nuestra energía: brillante, optimista y siempre visible.</p>
+            <br>
+            <p>Desde hace 5 años, ayudamos a empresas y emprendedores a encontrar su voz visual y técnica en el mundo digital.</p>
+            <br>
+            <a href="#" class="btn btn-primary">Leer más historia</a>
+        </div>
+    </section>
+
+    <!-- CTA (CALL TO ACTION) -->
+    <section class="cta">
+        <h2>¿Listo para comenzar tu proyecto?</h2>
+        <p>No pierdas más tiempo, llevemos tu idea a la realidad hoy mismo.</p>
+        <br>
+        <button class="btn btn-cta-dark" onclick="window.location.href='#contacto'">Solicitar Presupuesto</button>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>TuMarca.</h3>
+                <p>Haciendo el mundo más brillante, un proyecto a la vez.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#features">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto Rápido</h3>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido tu mensaje.');">
+                    <input type="email" placeholder="Tu Email" required>
+                    <textarea rows="3" placeholder="Tu Mensaje" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Tu Marca. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menú Móvil
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Efecto Sticky en Navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('navbar');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        // Smooth Scroll (por si el navegador no lo soporta nativamente en CSS)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
